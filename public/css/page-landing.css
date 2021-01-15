@@ -1,0 +1,67 @@
+#page-landing {
+  background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%); /* faz o gradiente 
+  (degradê) de uma cor a outra, iniciando de 0% de uma a 100% da outra. */
+  min-height: 100vh; /* estipula uma altura mínima (note que a mínima é a altura do nosso body) */
+  text-align: center; 
+
+  display: flex; /* altera o display para flex / dessa forma podemos usar o 'margin: auto' */
+}
+
+#container {
+  margin: auto; /* alinhamos nosso container no centro horizontalmente e verticalmente */
+  width: 90%; /* definimos uma largura de até 90% da tela, para que não ocupe toda a largura da tela
+  e em dispositivos mobile fique estranho */
+}
+
+.location, main h1, .visit p { /* podemos usar a classe e indicar o elemento que queremos manipular, 
+  como fizemos com o '.visit p', ou seja, estamos manipulando apenas o '<p>' presente na classe visit */
+
+  height: 16vh; /* acaba por aplicar uma distância entre os elementos indicados de 16vh 
+  (nosso body tem 100vh) */
+}
+
+.visit a {
+  width: 8rem;
+  height: 8rem;
+  background: #ffd666;
+  border: none; /* sem borda */
+  border-radius: 3rem; /* raio da borda */
+  display: flex; /* disply flex para usarmos o 'margin: auto' */
+  align-items: center; /* alinhamos o item verticalmente */
+  justify-content: center; /* alinhamos o item horizontalmente */ /* agora ele já estará no centro de si 
+  mesmo*/
+  margin: auto; /* alinhamos o item ao centro da tela, tanto verticalmente quanto horizontalmente */
+
+  transition: background 200ms; /* transition sendo usado para o background no ':hover' ser alterado 
+  após 200ms */
+}
+
+.visit a:hover { /* ':hover' é o estado em que o mouse está em cima, neste caso em cima do botão */
+  background: #96feff; /* então, quando o mouse estiver em cima, o background é alterado para a
+  cor indicada*/
+}
+
+/* animação para que apareça um elemento por vez */
+
+
+#logo {
+  animation-delay: 50ms;
+}
+
+.location {
+  animation-delay: 100ms;
+}
+
+main h1 {
+  animation-delay: 150ms;
+}
+
+.visit p { /* poderia ser 'main p' */
+  animation-delay: 200ms;
+}
+
+.visit a { /* poderia ser 'main a' */
+  animation-delay: 250ms;
+}
+
+

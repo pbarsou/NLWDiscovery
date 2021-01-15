@@ -1,0 +1,33 @@
+* { /* neste seletor, zeramos alguns valores que já são previamente definidos pelo browser */
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  height: 100vh;
+  color: white;
+}
+
+:root {
+
+  font-size: 62.5%; /* que equivale a 10px, devido o tamanho padrão da fonte no 
+  navegador ser 16px */
+
+} /* ': root' é referente a tag <html> */
+
+body, input, button, textarea {
+  font-size: 1.8rem; /* equivalendo 18px (já que 'rem' é referente ao root e 1 em = tamanho 
+  da fonte estipulada no root (10 px ou 62.5%)) */
+  line-height: 1; /* tamanho da linha / espaçamento entre as linhas */
+  font-weight: 400; /* peso da fonte */
+  font-family: 'Nunito', sans-serif; /* sans-serif fica como opção caso não consiga encontrar
+  a Nunito */
+
+  /* maneira alternativa: */ /* font: 18rem/1 400 'Nunito', sans-serif; */
+}
+
+
+
+
+
+

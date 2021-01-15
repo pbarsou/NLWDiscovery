@@ -1,0 +1,22 @@
+/* animações */
+
+@keyframes up { /* keyframes indica que vamos criar uma animação */ /* nome da animação: 'up' */
+
+  from { /* de */
+    opacity: 0; /* opacidade iniciando em 0 */
+    transform: translateY(16px); /* translade do 16px em Y */ 
+  }
+
+  to { /* para */
+    opacity: 1; /* e indo para 1 */
+    transform: translateY(0px); /* para o 0px em Y */ /* se começa em 16px e vai para 0px, a animação 
+    acontece de baixo pra cima visto que é positivo pra baixo e negativo pra cima */
+  }
+
+}
+
+.animate-up { /* classe de animação onde aplicaremos nas tags que queremos que sejam animadas*/
+  animation-name: up; /* indicamos a animação que criamos 'up' */
+  animation-duration: 300ms; /* duração da animação */
+  animation-fill-mode: backwards; /* indica que após a transição, é para ficar com as definições do 'to' */
+}
