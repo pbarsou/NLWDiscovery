@@ -9,8 +9,11 @@
 
 #container {
   margin: auto; /* alinhamos nosso container no centro horizontalmente e verticalmente */
-  width: 90%; /* definimos uma largura de até 90% da tela, para que não ocupe toda a largura da tela
+  /*width: 90%; /* definimos uma largura de até 90% da tela, para que não ocupe toda a largura da tela
   e em dispositivos mobile fique estranho */
+  width: min(90%, 120rem); /* procura o mínimo entre 90% e 112rem (que equivale a 1120px de acordo
+  a proporção que utilizamos) /* o que significa é que se 90% for menor que 120rem, ele aplica os
+  90%, se não, aplica os 120rem de tela /* esse é o tamanho do nosso container*/
 }
 
 .location, main h1, .visit p { /* podemos usar a classe e indicar o elemento que queremos manipular, 
@@ -54,6 +57,9 @@
 
 main h1 {
   animation-delay: 150ms;
+  font-size: clamp(4rem, 8vw, 8.4rem); /* o clamp nos ajuda para que o font-size mantenha uma proporção
+  de no mínimo 4rem, no máx 8.4rem e sendo o ideal 8vw (viewport width, divide a tela em 100 pedacinhos)
+  e pega 8 deles */
 }
 
 .visit p { /* poderia ser 'main p' */
@@ -64,4 +70,52 @@ main h1 {
   animation-delay: 250ms;
 }
 
+/* desktop version */
+
+@media (min-width: 760px) { /* as regras só serão executadas após o que está sendo passado como parâmetro 
+for verdadeiro */ /* então, se a tela fo no mínimo de 760px */
+  #container {
+    padding: 5rem 2rem; /* aumentamos o padding da caixa (5rem em cima e baixo e 2rem nas laterias) para 
+    que a imagem não seja cortada */
+    background: url(../images/bg.svg) no-repeat 80% / clamp(30rem, 54vh, 56rem); /* image repeat 
+    position / size /* a posição foi de 80% em relação a x e y /* o tamanho foi dado em clamp para se
+    ajustar durante as telas*/
+  }
+  header {
+    display: flex;
+    align-items: center; /* para um ficar ao lado do outro no meio certinho */
+    justify-content: space-between; /* cria uma espaço entre eles */ /* após isso voltamos para a classe
+    #container e ajustamos a limitação da box em tela*/
+  }
+  .location, main h1, .visit p {
+    height: initial; /* para voltar ao valor incial de antes mesmo de aplicarmos qualquer regra css */
+    text-align: initial; /* volta os textos para posição inicial */
+  }
+  .location {
+    text-align: right;
+    font-size: 2.4rem;
+    line-height: 1.5;
+  }
+  main h1 {
+    font-weight: bold;
+    line-height: .88; /* distância entre as linhas */
+    margin: clamp(10%, 9vh, 12%) 0 4rem; /* para mantermos uma proporção de margem (clamp para cima,
+    0 para os lados e 4rem para baixo */
+    width: min(300px, 80%); /* para limitarmos o tamanho */
+  }
+  .visit {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .visit p {
+    font-size: 2.4rem;
+    line-height: 1.2;
+    width: clamp(20rem, 20vh, 30rem) /* basicamente (200px, 20vh, 300px) */
+  }
+  .visit a {
+    margin: initial; /* para que consigamos jogar o botão pro canto, visto que o margin dele na versão
+    mobile estava auto */
+  }
+}
 

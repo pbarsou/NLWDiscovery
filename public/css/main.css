@@ -4,8 +4,9 @@
 }
 
 body{
-  height: 100vh;
-  color: white;
+  height: 100vh; /* viewport higth, divide a tela (altura) em 100 pedacinhos, e pega 100 desses 
+  para ocupar toda a tela */
+  color: white; /* tudo o que estier dentro do body é branco */
 }
 
 :root {
