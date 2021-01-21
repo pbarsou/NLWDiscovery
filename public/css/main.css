@@ -1,6 +1,8 @@
 * { /* neste seletor, zeramos alguns valores que já são previamente definidos pelo browser */
   margin: 0;
   padding: 0;
+  box-sizing: border-box; /* para manter as proporções da caixa sem somar os paddings que forem 
+  adicionados /* por padrão é 'content-box', que pega o conteúdo e soma os paddings */
 }
 
 body{
@@ -20,11 +22,14 @@ body, input, button, textarea {
   font-size: 1.8rem; /* equivalendo 18px (já que 'rem' é referente ao root e 1 em = tamanho 
   da fonte estipulada no root (10 px ou 62.5%)) */
   line-height: 1; /* tamanho da linha / espaçamento entre as linhas */
-  font-weight: 400; /* peso da fonte */
+  font-weight: 400; /* peso da fonte */ 
   font-family: 'Nunito', sans-serif; /* sans-serif fica como opção caso não consiga encontrar
   a Nunito */
 
-  /* maneira alternativa: */ /* font: 18rem/1 400 'Nunito', sans-serif; */
+  /* algumas dessas configurações não alterou nada na nossa página, porém é bom deixar valores
+  especificados para que não seja utilizadas pré-definições estabelecidas pelo browser */
+
+  /* maneira alternativa de se escrever o que está acima: */ /* font: 18rem/1 400 'Nunito', sans-serif; */
 }
 
 

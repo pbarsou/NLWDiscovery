@@ -15,8 +15,22 @@
 
 }
 
+@keyframes right {
+  from {
+    transform: translateX(-100%)
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .animate-up { /* classe de animação onde aplicaremos nas tags que queremos que sejam animadas*/
   animation-name: up; /* indicamos a animação que criamos 'up' */
   animation-duration: 300ms; /* duração da animação */
   animation-fill-mode: backwards; /* indica que após a transição, é para ficar com as definições do 'to' */
+}
+
+.animate-right {
+  animation-name: right;
+  animation-duration: 300ms;
 }
