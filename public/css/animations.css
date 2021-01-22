@@ -1,5 +1,7 @@
 /* animações */
 
+/* animação dos itens da page-landing */
+
 @keyframes up { /* keyframes indica que vamos criar uma animação */ /* nome da animação: 'up' */
 
   from { /* de */
@@ -15,12 +17,25 @@
 
 }
 
+/* animação da barra lateral da 'page-orphanages' */
+
 @keyframes right {
   from {
-    transform: translateX(-100%)
+    transform: translateX(-100%); /* translade de -100% em X */
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0); /* para o 0% em X */
+  }
+}
+
+/* animação de aparição do mapa da 'page-orphanages' */
+
+@keyframes apper {
+  from {
+    opacity: 0; /* opacidade iniciando em 0 */
+  }
+  to{
+    opacity: 1; /* e indo para 1 */
   }
 }
 
@@ -33,4 +48,10 @@
 .animate-right {
   animation-name: right;
   animation-duration: 300ms;
+}
+
+.animate-apper {
+  animation-name: apper;
+  animation-duration: 300ms;
+  animation-fill-mode: backwards; /* indica que após a transição, é para ficar com as definições do 'to' */
 }

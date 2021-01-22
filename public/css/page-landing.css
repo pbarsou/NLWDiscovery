@@ -57,7 +57,7 @@ main h1 {
 
   transition: background 200ms; /* 'transition' sendo usado para a transição do background no ':hover' 
   ser durar 200ms, dando a sensação de suavidade */
-  animation-delay: 250ms;
+  animation-delay: 250ms; /* delay para a animação, para os itens aparecerem em tela progressivamente */
 }
 
 .visit a:hover { /* ':hover' é o estado em que o mouse está em cima, neste caso em cima do botão */

@@ -5,8 +5,15 @@
   display: flex;
 }
 
+#mapid {
+  width: 100%;
+  height: 100%; /* Colocamos 100%, mas acredito que ele preencha o que resta de espaço vazio na página e 
+  não ela por inteiro */
+  animation-delay: 200ms; /* delay para a animação, para acontecer após 200ms */
+}
+
 aside {
-  width: clamp(24rem, 25vw, 44rem);
+  width: clamp(24rem, 25vw, 44rem); /* Tamanho da nossa barra lateral */
   background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
   padding: clamp(3rem, 4.8vw, 8rem); /* adicionamos um 'box-sizing' no 'main.css' para não somar o padding ao tamanho da caixa */ 
 }
@@ -37,6 +44,8 @@ a.create-orphanage {
   parte, sobreposta. */
   right: 4rem; /* É liberado após usarmos o atributo 'position' /* Dá um espaçamento de 4rem na direita */
   bottom: 4rem; /* É liberado após usarmos o atributo 'position' /* Dá um espaçamento de 4rem embaixo */
+  z-index: 10; /* eixo z, usado para sobrepormos item acima de item, neste caso estamos sobrepondo o 
+  botão em cima do mapa, pois ele não estava aparecendo */
   width: 6.4rem; /* largura do botão */
   height: 6.4rem; /* altura do botão */
   background: #15C3D6;
@@ -46,9 +55,53 @@ a.create-orphanage {
   justify-content: center; /* alinhamos o conteúdo '+' no centro do botão horizontalmente */
   align-items: center; /* alinhamos o conteúdo '+' no centro do botão verticalmente */
   transition: background 200ms; /* 'transition' sendo usado para a transição do background no ':hover' 
-  ser durar 200ms, dando a sensação de suavidade */
+  durar 200ms, dando a sensação de suavidade */
 }
 
-a.create-orphanage:hover {
+a.create-orphanage:hover { /* ao passar o mouse */
   background: #17D6EB;
+}
+
+/* popup */
+
+.leaflet-popup-content-wrapper { /* estilização do popup */
+  background: rgba(255, 255, 255, 0.8); /* quando se coloca 255 equivale a branco, e 0 equivale a preto
+  o último valor que é o alfa, estipula a transparencia */
+  border-radius: 20px;
+}
+
+.leaflet-popup-content { /* estilização do conteúdo do popup */
+  color: #0089A5;
+  font: 700 2rem/1 'Nunito', sans-serif;
+  margin: .8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.leaflet-popup-content a { /* estilização do botão do popup */
+  width: 4rem;
+  height: 4rem;
+  background: #15C3D6;
+  box-shadow: 17.2868px 27.6589px 41.4884px rgba(23, 142, 166, 0.16); /* sombra, primeiro valor é o 
+  deslocamento no eixo x, segundo no eixo y, terceiro é o esfumaçado e quarto a cor */
+  border-radius: 12px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms; /* 'transition' sendo usado para a transição do background no 
+  ':hover' durar 200ms, dando a sensação de suavidade */
+}
+
+.leaflet-popup-content a:hover {
+  background: #17D6EB;
+}
+
+.leaflet-popup-tip {
+  display: none;
+}
+
+.leaflet-container {
+  position: relative; 
+  z-index: 5; /* valor abaixo do 'z-index' do botão para ser sobreposto */
 }
