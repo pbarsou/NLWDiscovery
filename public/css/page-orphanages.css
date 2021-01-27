@@ -15,7 +15,13 @@
 aside {
   width: clamp(24rem, 25vw, 44rem); /* Tamanho da nossa barra lateral */
   background: linear-gradient(329.54deg, #15B6D6 0%, #15D6D6 100%);
-  padding: clamp(3rem, 4.8vw, 8rem); /* adicionamos um 'box-sizing' no 'main.css' para não somar o padding ao tamanho da caixa */ 
+  padding: clamp(3rem, 4.8vw, 8rem); /* adicionamos um 'box-sizing' no 'main.css' para não somar o 
+  padding ao tamanho da caixa */
+  display: flex;
+  flex-direction: column; /* o display 'flex' nos ajuda a pôr um item ao lado do outro. Usando o 
+  'flex-direction: column', estamos indicando que a direção que queremos é em coluna */
+  justify-content: space-between; /* dessa forma aplicamos um 'justify-content: space-between' para dar 
+  um espaçamento máximo entre eles */
 }
 
 aside h2 {
@@ -26,10 +32,6 @@ aside h2 {
 aside p {
   margin-top: 2.4rem;
   font: 400 1.6rem/1.5 'Nunito', sans-serif;
-}
-
-aside footer {
-  margin-top: clamp(18rem, 15vw, 35rem);
 }
 
 aside footer p {

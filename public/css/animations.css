@@ -50,8 +50,8 @@
   animation-duration: 300ms;
 }
 
-.animate-apper {
-  animation-name: apper;
+.animate-apper { /* appear****/
+  animation-name: apper; /* appear****/
   animation-duration: 300ms;
   animation-fill-mode: backwards; /* indica que após a transição, é para ficar com as definições do 'to' */
 }

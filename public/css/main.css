@@ -3,12 +3,14 @@
   padding: 0;
   box-sizing: border-box; /* para manter as proporções da caixa sem somar os paddings que forem 
   adicionados /* por padrão é 'content-box', que pega o conteúdo e soma os paddings */
+  /* a partir de agora todas as caixas manterão esse padrão */ 
 }
 
 body{
   height: 100vh; /* viewport higth, divide a tela (altura) em 100 pedacinhos, e pega 100 desses 
   para ocupar toda a tela */
-  color: white; /* tudo o que estier dentro do body é branco */
+  color: white; /* tudo o que estiver dentro do body é branco */
+  background: #EBF2F5; /* cor de fundo */
 }
 
 :root {

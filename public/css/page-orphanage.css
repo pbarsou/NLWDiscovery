@@ -1,0 +1,218 @@
+#page-orphanage {
+  display: flex; /* para colocarmos um item ao lado do outro, neste caso a barra lateral ao lado do resto 
+  da página */
+  min-height: 100vh;
+}
+
+aside.sidebar {
+  position: fixed; /* mesmo se rolarmos a página, ela continuará fixa */
+  height: 100%;
+  padding: 3.2rem 2.4rem;
+  background: #15C3D6;
+  display: flex;
+  flex-direction: column; /* o display 'flex' nos ajuda a pôr um item ao lado do outro. Usando o 
+  'flex-direction: column', estamos indicando que a direção que queremos é em coluna */
+  justify-content: space-between; /* dessa forma aplicamos um 'justify-content: space-between' para dar 
+  um espaçamento máximo entre eles */
+  align-items: center; /* como queremos eles no centro da barra lateral, alinhamos ao centro */
+}
+
+aside.sidebar footer button {
+  width: 4.8rem;
+  height: 4.8rem;
+  background: #12AFCB;
+  border: none;
+  border-radius: 1.6rem;
+  cursor: pointer; /* para ao passar o mouse em cima, virar aquela maozinha indicando que há 
+  possibilidade de ser clicado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms;
+}
+
+aside.sidebar footer button:hover {
+  background: #17D6EB; 
+}
+
+.with-sidebar {
+  padding-left: 11rem;
+}
+
+main {
+  flex: 1; /* como o elemento pai do 'main', 'page-orphanage', tem 'display: flex', e temos uma barra 
+  lateral ocupando parte do espaçamento inteiro da página, o 'main' não consegue ocupar o espaço inteiro
+  da página (afinal não queremos isso). Dessa forma, quando damos 'margin: auto' nos lados do 
+  'orphanag-details', o 'main' faz o cálculo baseado na tela inteira, e não no que resta. Informando
+  'flex: 1', o cálculo é feito baseado no espaço que resta na página, colocando o nosso 'main' no meio 
+  corretamente */
+}
+
+.orphanage-details {
+  width: 70rem;
+  margin: 6.4rem auto; /* margin de '6.4rem' embaixo e em cima, e aos lados 'auto' */
+  background: white;
+  border: 0.1rem solid #D3E2E5; /* tamanho da borda / estilo / cor */
+  border-radius: 2rem; /* arredondamento da borda */
+  overflow: hidden; /* significa que o que estiver dentro da caixa vai respeitar as configurações feitas
+  de dentro dela /* as bordas não estavam aparecendo por conta do tamanho da imagem, dessa
+  forma, o 'overflow: hidden' nos ajuda a corrigir isto */
+}
+
+.orphanage-details > img { /* '>' faz com que pegue a 'img' que está no nível mais alto */
+  width: 100%;
+  height: 30rem;
+  object-fit: cover; /* comportamento do item dentro da caixa, neste caso a imagem, e usando o 'cover',
+  preservamos o tamanho da imagem proporcionalmente ao tamanho da caixa, evitando que fique com muito
+  zoom ou desfocado */
+}
+
+.images {
+  display: grid; /* podendo ser dispostos entre linhas e colunas */
+  grid-template-columns: repeat(6, 1fr); /* quantidade de colunas /* a função 'repeat' nos ajuda a criar 
+  a grid com o tamanho ideal que queremos, e nela informamos como primeiro argumento quantas vezes irá 
+  repetir, e como segundo, o tamanho proporcional, o qual estamos colocando 1 fração para cada 1 */
+  column-gap: 1.6rem; /* espaço entre cada um na coluna */
+  margin: 1.6rem 4rem 0; /* margem da grid em relação a caixa /* 1.6rem de topo e 4rem nas laterais 
+  e 0 embaixo */
+}
+
+.images button {
+  border: 0; /* sem borda nos botões */
+  background: none; /* sem fundo nos botões */
+  height: 8.8rem; /* altura dos botões */
+  cursor: pointer; /* possibilitando que ao qualquer botão ser clicado, mude a imagem principal */
+  border-radius: 2rem; /* arredondamento da borda */
+  overflow: hidden; /* significa que o que estiver dentro da caixa vai respeitar as configurações feitas
+  de dentro dela /* as bordas dos botões não estavam aparecendo por conta do tamanho das imagens, dessa
+  forma, o 'overflow: hidden' nos ajuda a corrigir isto */
+  opacity: 0.6; /* opacidade */
+  transition: opacity 200ms; /* suavidade na transição da opacidade */
+}
+
+.images button:hover, .images button.active { /* no hover e quando o botão estiver ativo (ou seja, imagem
+  esteja selecionada) */
+  opacity: 1; /* opacidade volta pra 1 */
+}
+
+.images button img { 
+  width: 100%; /* largura para cada imagem nos botões */
+  height: 8.8rem; /* altura para cada imagem nos botões */
+  object-fit: cover; /* comportamento de 'cover' nos botões */
+}
+
+.orphanage-details-content {
+  padding: 8rem; /* preenchimento de 8rem em todos os lados da caixa */
+}
+
+.orphanage-details-content h1 {
+  color: #4D6F80;
+  font-size: 5.4rem;
+  line-height: 1.5;
+  margin-bottom: 0.8rem;
+}
+
+.orphanage-details-content p {
+  line-height: 1.6;
+  color: #5C8599;
+  margin-top: 2.4rem;
+}
+
+/* map */
+
+.map-container {
+  margin-top: 6.4rem;
+  background: #E6F7FB;
+  border: 0.1rem solid #B3DAE2;
+  border-radius: 2rem;
+}
+
+#mapid {
+  width: 100%;
+  height: 28rem;
+}
+
+.map-container footer {
+  padding: 2rem 0; /* preenchimento de 2rem em cima e em baixo e 0 nos lados  */
+  text-align: center; 
+}
+
+.map-container footer a {
+  color: #0089A5;
+  text-decoration: none; /* para tirar a linha abaixo do link  */
+}
+
+.map-container .leaflet-container {
+  border-bottom: 0.1rem solid #DDE3F0;
+  border-radius: 2rem;
+}
+
+.orphanage-details-content hr {
+  width: 100%;
+  height: 0.1rem;
+  /* border: 0; /* quando escrevo que vai ser sem borda o 'hr' some  */
+  color: #D3E2E6;
+  margin: 6.4rem 0;
+}
+
+.orphanage-details-content h2 {
+  font-size: 3.6rem;
+  line-height: 1.5rem;
+  color: #4D6F80;
+}
+
+.open-details {
+  margin-top: 2.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* ou 'repeat(2, 1fr)' */ /* quantidade de colunas */
+  column-gap: 2rem; /* espaçamento entre as colunas */
+}
+
+.open-details div {
+  padding: 3.2rem 2.4rem; /* 3.2rem em cima e em baixo e 2.4 nas laterais */
+}
+
+.open-details img {
+  display: block; /* para o texto ficar abaixo das imagens */
+  margin-bottom: 2rem;
+}
+
+.open-details .hour {
+  background: linear-gradient(149.97deg, #E6F7FB 8.13%, #FFFFFF 92.67%);
+  border: 0.1rem solid #B3DAE2;
+  border-radius: 2rem;
+  color: #5C8599;
+  line-height: 2.5rem;
+}
+
+.open-details .open-on-weekeds {
+  background: linear-gradient(154.16deg, #EDFFF6 7.85%, #FFFFFF 91.03%);
+  /* Green Low */
+  border: 0.1rem solid #A1E9C5;
+  border-radius: 2rem;
+  color: #37C77F;
+  line-height: 2.5rem;
+}
+
+.primary-button {
+  margin-top: 6.4rem;
+  width: 100%;
+  height: 6.4rem;
+  border: 0;
+  cursor: pointer;
+  background: #3CDC8C;
+  border-radius: 2rem;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms;
+}
+
+.primary-button:hover {
+  background: #36CF82;
+}
+
+.primary-button img {
+  margin-right: 1.6rem;
+}

@@ -37,9 +37,10 @@ const popup = L.popup({
   minWidth: 240, // largura mínima 
   minHeight: 240 // altura mínima 
 }).setContent('Lar das meninas <a href="orphanage.html?id=1" class="choose-orphanage"> <img src="./public/images/arrow-white.svg"> </a>');
-// conteúdo do popup e botão
+// conteúdo do popup e botão que leva para a página do orfanato referente ao marcador 
+
 
 // create and add marker
 
-L.marker([-27.20, -49.69], { icon }).addTo(map)
-  .bindPopup(popup);
+L.marker([-27.20, -49.69], { icon }).addTo(map) // inserção do marker
+.bindPopup(popup); // inserção do popup

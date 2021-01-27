@@ -55,7 +55,7 @@ main h1 {
   mesmo*/
   margin: auto; /* alinhamos o item ao centro da tela, tanto verticalmente quanto horizontalmente */
 
-  transition: background 200ms; /* 'transition' sendo usado para a transição do background no ':hover' 
+  transition: background-color 200ms; /* 'transition' sendo usado para a transição do background no ':hover' 
   ser durar 200ms, dando a sensação de suavidade */
   animation-delay: 250ms; /* delay para a animação, para os itens aparecerem em tela progressivamente */
 }
