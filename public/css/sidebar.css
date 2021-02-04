@@ -1,0 +1,39 @@
+aside.sidebar {
+  position: fixed; /* mesmo se rolarmos a página, ela continuará fixa */
+  height: 100%;
+  padding: 3.2rem 2.4rem;
+  background: #15C3D6;
+  display: flex;
+  flex-direction: column; /* o display 'flex' nos ajuda a pôr um item ao lado do outro. Usando o 
+  'flex-direction: column', estamos indicando que a direção que queremos é em coluna */
+  justify-content: space-between; /* dessa forma aplicamos um 'justify-content: space-between' para dar 
+  um espaçamento máximo entre eles */
+  align-items: center; /* como queremos eles no centro da barra lateral, alinhamos ao centro */
+}
+
+aside.sidebar footer button {
+  width: 4.8rem;
+  height: 4.8rem;
+  background: #12AFCB;
+  border: none;
+  border-radius: 1.6rem;
+  cursor: pointer; /* para ao passar o mouse em cima, virar aquela maozinha indicando que há 
+  possibilidade de ser clicado */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 200ms;
+  outline: none; /* tiremos a acessibilidade, que ao clicar no botão, deixa uma borda preta ao redor */
+}
+
+aside.sidebar footer button:focus {
+border: 0.2rem solid #b1ecf8;
+}
+
+aside.sidebar footer button:hover {
+  background: #17D6EB; 
+}
+
+.with-sidebar {
+  padding-left: 11rem;
+}

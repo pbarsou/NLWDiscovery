@@ -1,0 +1,25 @@
+#page-create-orphanage {
+ display: flex;
+ min-height: 100%;
+}
+
+main{
+  flex: 1;
+}
+
+.map-container {
+  margin: 0 0 4rem; /* 0 em cima, 0 nas laterais e 4rem embaixo (zerando os valores que não queremos 
+  igual no 'map.css' já que tínhamos decidido valores que para essa página não convém) */
+}
+
+.map-container .leafleat-conainer {
+  border-radius: 2rem 2rem 0 0; /* 2rem em cima esquerda, 2rem em cima direita, 0 embaixo direita, 0
+  embaixo esqueda */
+}
+
+.map-container footer {
+    background-color: #F5F8FA;
+    border-radius: 0 0 2rem 2rem; /* 0 em cima esquerda, 0 em cima direita, 2rem embaixo direita, 2rem
+    embaixo esquerda */
+}
+

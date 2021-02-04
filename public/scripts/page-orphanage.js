@@ -11,7 +11,7 @@ const options = {
 
 // create map
 
-const map = L.map('mapid', options).setView([-27.2058128, -49.6932564], 15);
+const map = L.map('mapid', options).setView([-27.2058128, -49.6932564], 12);
 /* Mudamos para 'const' ao invés de 'var' por estarmos utilizando o js moderno /* significa que este mapa 
 vai ser um mapa do começo ao fim da nossa aplicação */
 // O 'L' é referente ao objeto que o Leaflet criou na nossa aplicação 
@@ -55,33 +55,35 @@ L.marker([-27.20, -49.69], { icon }).addTo(map); // inserção do marker
 
 function selectImage(event) {
 
-  const button = event.currentTarget /* 'event.currentTarget', ou seja, alvo atual, diz que quem está 
-  disparando o evento é o botão */
+  const button = event.currentTarget /* 'event.currentTarget', ou seja, alvo atual, diz quem disparou o 
+  evento, neste caso o botão */
 
 
   // remover todas as classes '.active'
 
-  const buttons = document.querySelectorAll(".images button"); /* 'querySelectorAll' significa: consulte 
-  dos os seletores /* então estamos consultando todos os buttons presentes na classe 'images'*/ 
+  const buttons = document.querySelectorAll('.images button'); /* 'querySelectorAll' significa: 
+  consulte todos os seletores /* então estamos consultando todos os buttons presentes na classe 'images'*/ 
 
   buttons.forEach((button) => { /* 'forEach' sigifica: para cada /* então, para cada botão: */
-    button.classList.remove("active"); /* todo botão tem uma 'classList', e dentro dela podemos remover o
-    'active' /* lembrando que esse 'button' não é o mesmo do criado acima, ele refere-se a 1 botão dos 6
-    botões que o 'querySelectorAll' consultou, já que estamos fazendo um 'forEach', ou seja, 'para cada' */ 
+    button.classList.remove('active'); /* todo botão tem uma 'classList', e dentro dela podemos remover o
+    'active' /* lembrando que esse 'button' não é o mesmo do criado acima, ele refere-se ao botão do 
+    momento, ou seja, um dos 6 botões que o 'querySelectorAll' consultou, já que estamos fazendo um 
+    'forEach', ou seja, 'para cada' */ 
   })
 
 
   // selecionar a imagem clicada
   const img = button.children[0]; /* se dermos um 'console.log(button.children)' veremos que ele só tem 
   1 filho, e este filho é uma imagem na posição 0 */
-  const imgContainer = document.querySelector(".orphanage-details > img");
-
+  const imgContainer = document.querySelector(".orphanage-details > img"); /* estamos pegando a imagem
+  de nível mais alto */
+  
 
   // atualizar container de imagem
   imgContainer.src = img.src;
 
 
   // adicionar classe '.active' ao botão selecionado
-  button.classList.add("active");
+  button.classList.add('active');
   
 }

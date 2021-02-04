@@ -1,0 +1,217 @@
+<!--
+
+Comentário
+
+-->
+
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- 
+    permite que o documento se adapte a outras telas -->
+    <title>Adicionar um orfanato | Happy</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""
+    />
+
+    <!-- o '<script>' que vem a seguir sempre tem que vir depois do Leaflet's CSS -->
+    <script
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+
+    <link rel="icon" href="public/images/logo-icon.png" />
+    <!-- 
+    rel significa relacionamento -->
+    <link rel="stylesheet" href="public/css/main.css" />
+    <link rel="stylesheet" href="public/css/animations.css" />
+    <link rel="stylesheet" href="public/css/sidebar.css" />
+    <link rel="stylesheet" href="public/css/map.css" />
+    <link rel="stylesheet" href="public/css/buttons.css" />
+    <!-- 
+    css de botões -->
+    <link rel="stylesheet" href="public/css/page-create-orphanage.css" />
+    <!-- 
+    aqui fizemos a integração do css -->
+    <link rel="stylesheet" href="public/css/form.css" />
+    <!-- 
+    arquivo css de formulários -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- 
+    importação da fonte 'nunito' e seus pesos -->
+  </head>
+
+  <body>
+    <div id="page-create-orphanage">
+      <aside class="animate-right sidebar">
+        <!-- 
+      Barra lateral -->
+        <!-- 
+      aqui temos a classe 'animate-right' e a classe 'sidebar' -->
+
+        <img src="./public/images/map-marker.svg" alt="Happy" />
+        <footer>
+          <button onclick="history.back()">
+            <!-- 
+          'history.back' faz voltar para a página anterior / colocamos uma funcionalidade do js direto 
+          na tag -->
+            <img src="public/images/arrow-back.svg" alt="Voltar" />
+          </button>
+        </footer>
+      </aside>
+
+      <main class="animate-apper with-sidebar">
+        <!-- 
+      Resto da página -->
+
+        <form action="">
+          <!-- 
+        Criação do formulário -->
+          <fieldset>
+            <!-- 
+        É como se fossem blocos de inputs -->
+            <legend>Dados</legend>
+            <!-- 
+          Nome do bloco -->
+            <div class="map-container">
+              <div id="mapid"></div>
+              <!-- 
+            Criação do mapa -->
+              <input type="hidden" name="lat" />
+              <input type="hidden" name="lng" />
+              <!-- 
+            'hidden', ou seja, escondido, é um 'input' que está na página, mas escondido. 
+            Nesses 'inputs' escondidos estamos pegando o valor da latidude e longidude da marcação no 
+            mapa. Isso se faz necessário para esses tais valores serem apresentados na url juntamente com 
+            os valores preenchidos nos 'inputs' restantes da página, afinal precisamos armazená-los em um 
+            banco de dados -->
+              <footer>
+                <a href="" id="select-point">
+                  Clique no mapa para adicionar a localização
+                </a>
+              </footer>
+            </div>
+
+            <div class="input-block">
+              <!-- 
+            Agrupamento para cada tipo de campo de entrada -->
+              <label for="name">Nome</label>
+              <input id="name" name="name" required />
+              <!-- 
+            sendo que 'name' acaba por ligar o 'label' ao 'input' ('for' e 'id'), e 'name' em verde, 
+            atributo para identificar o que é esse campo no back-end 
+            'required' informando que o campo é obrigatório -->
+            </div>
+
+            <div class="input-block">
+              <label for="about"
+                >Sobre <span>Máximo de 300 catacteres</span></label
+              >
+              <textarea id="about" name="about" required></textarea>
+              <!-- 
+            Não pode dar espaço entre as tags, senão o cursor n se posiciona no ínicio -->
+            </div>
+
+            <div class="input-block">
+              <label for="whatsapp">Número de whatsapp</label>
+              <input id="whatsapp" name="whatsapp" required />
+            </div>
+
+            <div class="input-block images" required>
+              <label for="images">Foto</label>
+              <!-- 
+            nesteaqui não temos um 'id' no 'input' para ligar ao 'for' -->
+              <div class="images-upload" id="images">
+                <div class="new-upload">
+                  <input
+                    name="images"
+                    placeholder="Cole o link da foto aqui"
+                    required
+                  />
+                  <span onclick="deleteField(event)"
+                    ><img
+                      src="./public/images/remove-file.svg"
+                      alt="Remover foto"
+                  /></span>
+                </div>
+              </div>
+
+              <button onclick="addPhotoField()" type="button">
+                <!-- 
+            um botão dentro de um formulário normalmente envia o formulário, usando o 'type="button"' 
+            deixa claro que o botão não está enviando o formulário e a página não é atualizada -->
+                <img src="./public/images/add-file.svg" alt="Nova imagem" />
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Visitação</legend>
+
+            <div class="input-block">
+              <label for="instructions">Instruções</label>
+              <textarea
+                id="instructions"
+                name="instructions"
+                required
+              ></textarea>
+              <!-- 
+            Não pode dar espaço entre as tags, senão o cursor n se posiciona no ínicio -->
+            </div>
+
+            <div class="input-block">
+              <label for="opening_hours">Horário das visitas</label>
+              <input id="opening_hours" name="opening_hours" required />
+            </div>
+
+            <div class="input-block">
+              <label for="open_on_weekends">Atende fim de semana?</label>
+              <input
+                type="hidden"
+                id="open_on_weekends"
+                name="open_on_weekends"
+                value="1"
+                required
+              />
+              <!-- 
+            'hidden', ou seja, escondido, é um 'input' que está na página, mas escondido
+            'value' sendo 1 para verdadeiro como padrão -->
+            </div>
+
+            <div class="button-select">
+              <button data-value="1" 
+              onclick="toggleSelect(event)" 
+              type="button" 
+              class="active">Sim</button>
+              <!-- 
+            'data-value' usamos para setar o valor pelo js no 'value do 'input'
+            podemos colocar qualquer nome depois do 'data-', ex: 'data-...'-->
+              <button data-value="0" 
+              onclick="toggleSelect(event)"
+              type="button">Não</button>
+            </div>
+
+            <button type="submit" class="primary-button">Confirmar</button>
+          </fieldset>
+        </form>
+      </main>
+    </div>
+  </body>
+
+  <script src="./public/scripts/page-create-orphanage.js"></script>
+  <!-- 
+  Bom sempre deixarmos para linkar o js no final do documento html, visto que algo no nosso código pode
+  acabar quebrando a aplicação -->
+</html>

@@ -1,0 +1,122 @@
+form {
+  width: 70rem;
+  margin: 6.4rem auto; /* margin de '6.4rem' embaixo e em cima, e aos lados 'auto' */
+  background: white;
+  border: 0.1rem solid #D3E2E5; /* tamanho da borda / estilo / cor */
+  border-radius: 2rem; /* arredondamento da borda */
+  overflow: hidden; /* significa que o que estiver dentro da caixa vai respeitar as configurações feitas
+  de dentro dela */
+  padding: 8rem; /* preenchimento de 8rem em todos os lados da caixa */
+}
+
+fieldset { /* que basicamente um bloco de agrupamento de inputs */
+  border: 0;
+}
+
+fieldset + fieldset { /* pega o segundo 'fieldset', ou seja, o fildset irmão. Caso tivéssemos mais de 2
+  fildsets, em cada um deles, a partir do segundo (pois o primeio não tem nenhum irmão antes dele), 
+  seriam aplicadas essa configuração */
+  margin-top: 8rem;
+}
+
+fieldset legend { /* 'Dados' e 'Visitação' */
+  width: 100%;
+  font-size: 3.2rem;
+  line-height: 1.5;
+  color: #5C8599;
+  font-weight: 700;
+  border-bottom: 1px solid #D3E2E5;
+  margin-bottom: 4rem;
+  padding-bottom: 2.4rem; /* aumenando o preenchimento da caixa para dar espaço na linha que fica abaixo */
+}
+
+.input-block + .input-block { /* pega os 'input-block' irmãos. É aplicado tais configurações, em cada um 
+  deles, a partir do segundo (pois o primeio não tem nenhum irmão antes dele) */
+  margin-top: 2.4rem;
+}
+
+.input-block label {
+  color: #8FA7B3;
+  margin-bottom: .8rem;
+  line-height: 1.5;
+}
+
+.input-block label span {
+  font-size: 1.4rem;
+  color: #8FA7B3;
+  margin-left: 2.4rem;
+  line-height: 1.5;
+}
+
+.input-block input,
+.input-block textarea {
+  width: 100%; /* ocupando assim toda a linha */
+  background: #F5F8FA;
+  border: 0.1rem solid #D3E2E5;
+  border-radius: 2rem;
+  color: #5C8599;
+  outline: none; /* retirando linha preta que fica ao redor que é de acessibilidade */
+}
+
+/* adicionando acessibilidade */
+
+.input-block input:focus, 
+.input-block textarea:focus { /* quando o campo está em foco (quando é clicado sobre ele) */
+  border: 0.2rem solid #b1ecf8;
+}
+
+.input-block input {
+  height: 6.4rem;
+  padding: 0 1.6rem; /* fazendo com que o cursor não fique tão encostado nas laterais */
+}
+
+.input-block input:valid,
+.input-block textarea:valid { /* quando há algo dentro dele /* para usar corretamete, precisamos informar
+  que os campos são 'requeride', ou seja, são obrigatórios. Dessa forma, só ficam da cor informada abaixo
+  após ter algo dentro deles */
+  border: 1px solid #A1E9C5;
+}
+
+.input-block textarea {
+  height: clamp(12rem, 16rem, 24rem);
+  resize: vertical; /* setinha que pertime esticar o 'textarea' /* informamos que queremos que haja 
+  possibilidade de esticar apenas na vertical */
+  padding: 1.6rem; /* fazendo com que o cursor não fique tão encostado nas extremidades */
+  line-height: 2.8rem;
+}
+
+.input-block.images button {
+  border: 0.1rem dashed #96D2F0; /* tipo 'dashed' para ficar portilhado */
+  width: 100%;
+  background: #F5F8FA;
+  height: 6.4rem;
+  padding: 0 1.6rem;
+  margin-top: 2.4rem;
+  border-radius: 2rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.input-block.images button:focus {
+  border: 0.2rem solid #b1ecf8;
+}
+
+.new-upload { /* 'input' Foto */
+  position: relative; /* temos que informar que a posição do 'input' é relativa para que o 'span' (que é
+  o botão 'x'), ao receber 'position: absolute', se posicione no canto do 'input' e não no canto da pág */
+}
+
+.new-upload span { /* botão 'x' de remover presente no 'input' Foto */
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1.3rem;
+  background: #FFFFFF;
+  border: 1px solid #D3E2E5;
+  box-sizing: border-box;
+  border-radius: 10px;
+  padding: 0.6rem;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  cursor: pointer;
+}

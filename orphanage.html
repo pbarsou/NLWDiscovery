@@ -19,7 +19,7 @@ Comentário
   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
   crossorigin=""/>
 
-  <!-- Make sure you put this AFTER Leaflet's CSS -->
+  <!-- o '<script>' vem a seguir sempre tem que vir depois do Leaflet's CSS -->
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
   crossorigin=""></script>
@@ -29,12 +29,24 @@ Comentário
     rel significa relacionamento -->
   <link rel="stylesheet" href="public/css/main.css">
   <link rel="stylesheet" href="public/css/animations.css">
+  <link rel="stylesheet" href="public/css/sidebar.css">  
+  <!-- 
+    criamos um arquivo css a parte para o 'sidebar' por ele existir em mais de uma página, dessa forma,
+  para utilizá-lo, é só importarmos o arquivo css, para importar assim todas as configurações -->
+  <link rel="stylesheet" href="public/css/map.css">
+  <!-- 
+    o mesmo acontece com o 'map' -->
+  <link rel="stylesheet" href="public/css/buttons.css">
+  <!-- 
+    o mesmo acontece com o 'primary-button', que foi alterado para um css a parte junto com outros botões -->
   <link rel="stylesheet" href="public/css/page-orphanage.css">
   <!-- 
     aqui fizemos a integração do css -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <!-- 
+    importação da fonte 'nunito' e seus pesos -->
+    
 </head>
 
 <body>

@@ -40,7 +40,7 @@ aside footer p {
 
 /* button */
 
-a.create-orphanage {
+a.create-orphanage { /* botão '+' */
   position: absolute; /* Quando dizemos que uma posição é absoluta, estamos criando um novo contexto. 
   É como se fosse uma página se sobrepondo a outra. O item que tiver posição absoluta está numa página a 
   parte, sobreposta. */
@@ -69,7 +69,7 @@ a.create-orphanage:hover { /* ao passar o mouse */
 .leaflet-popup-content-wrapper { /* estilização do popup */
   background: rgba(255, 255, 255, 0.8); /* quando se coloca 255 equivale a branco, e 0 equivale a preto
   o último valor que é o alfa, estipula a transparencia */
-  border-radius: 20px;
+  border-radius: 2rem;
 }
 
 .leaflet-popup-content { /* estilização do conteúdo do popup */
@@ -95,15 +95,15 @@ a.create-orphanage:hover { /* ao passar o mouse */
   ':hover' durar 200ms, dando a sensação de suavidade */
 }
 
-.leaflet-popup-content a:hover {
+.leaflet-popup-content a:hover { 
   background: #17D6EB;
 }
 
-.leaflet-popup-tip {
+.leaflet-popup-tip { /* tira a "setinha" que fica abaixo da caixa do popup */
   display: none;
 }
 
-.leaflet-container {
-  position: relative; 
+.leaflet-container { /* mapa */
+  position: relative; /* necessário para termos possibilidade de mexer no eixo z */
   z-index: 5; /* valor abaixo do 'z-index' do botão para ser sobreposto */
 }

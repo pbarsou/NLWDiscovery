@@ -1,0 +1,27 @@
+.map-container { /* caixa que contém o mapa  */
+  margin-top: 6.4rem;
+  background: #E6F7FB;
+  border: 0.1rem solid #DDE3F0;
+  border-radius: 2rem;
+}
+
+#mapid {
+  width: 100%;
+  height: 28rem;
+}
+
+.map-container footer {
+  padding: 2rem 0; /* preenchimento de 2rem em cima e em baixo e 0 nos lados  */
+  text-align: center; 
+}
+
+.map-container footer a {
+  color: #0089A5;
+  text-decoration: none; /* para tirar a linha abaixo do link  */
+  font-weight: 700;
+}
+
+.map-container .leaflet-container { /* mapa  */
+  border-bottom: 0.1rem solid #DDE3F0;
+  border-radius: 2rem;
+}
